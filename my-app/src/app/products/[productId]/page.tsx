@@ -3,15 +3,21 @@
 import type { ProductsProps } from '@/app/lib/definitions';
 import React, { useState, useEffect } from 'react'
 
-export default function ProductById({params}: {params: {id: string}}) {
+export default function ProductById({params}: {params: {productId: string}}) {
 
-    const [dataProdId, setDataProdId] = useState<ProductsProps[]>([]);
+    if (parseInt(params.productId) > 3) {
+        throw new Error("Some trouble with products")
+    };
+
+    //console.log(params, "params");
+
+   const [dataProdId, setDataProdId] = useState<ProductsProps|null>(null);
 
     useEffect(() => {
         const caller = async () => {
-            const res = await fetch(`/api/products/${params.id}`)
+            const res = await fetch(`/api/products/${params.productId}`)
             const data = await res.json();
-            //console.log(data)
+            console.log(data, "data")
             setDataProdId(data)
         }
         caller();
@@ -21,14 +27,12 @@ export default function ProductById({params}: {params: {id: string}}) {
     return (
         <div>
 
-            {dataProdId.map((prod: ProductsProps) => (
-                <div>
-                    <p>Product: {prod.productName}</p>
-                    <p>Price: {prod.price}</p>
-                    <p>Stock: {prod.stock}</p>
-                    <p>Ref: {prod.ref}</p>
-                </div>
-            ))}
+            <div>
+                <p>Product: {dataProdId?.productName}</p>
+                <p>Price: {dataProdId?.price}</p>
+                <p>Stock: {dataProdId?.stock}</p>
+                <p>Ref: {dataProdId?.ref}</p>
+            </div>
 
         </div>
     )

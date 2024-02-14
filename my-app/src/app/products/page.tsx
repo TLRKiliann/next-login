@@ -1,7 +1,8 @@
 "use client";
 
 import type { ProductsProps } from '../lib/definitions';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function page() {
 
@@ -29,10 +30,11 @@ export default function page() {
 
         {products.map((prod: ProductsProps) => (
           <div key={prod.id}>
-            <p>Product: {prod.productName}</p>
+            <Link href={`/products/${prod.id}`}>Product: {prod.productName}</Link>
             <p>Price: {prod.price}</p>
             <p>Stock: {prod.stock}</p>
             <p>Ref: {prod.ref}</p>
+            <hr />
           </div>
         ))}
 
