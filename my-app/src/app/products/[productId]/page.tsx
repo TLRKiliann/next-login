@@ -31,7 +31,7 @@ export default function ProductById({params}: {params: {productId: string}}) {
         }
         caller();
         return () => console.log("clean-up !")
-    }, [])
+    }, [params.productId])
 
     return (
         <div>
