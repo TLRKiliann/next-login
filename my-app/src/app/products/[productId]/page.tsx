@@ -33,14 +33,23 @@ export default function ProductById({params}: {params: {productId: string}}) {
         return () => console.log("clean-up !")
     }, [params.productId])
 
+    const handleBuy = () => {
+        alert("Inserted into cart !")
+    }
+
     return (
-        <div>
+        <div className="flex items-center justify-center w-full min-h-screen">
 
             <div>
                 <p>Product: {dataProdId?.productName}</p>
                 <p>Price: {dataProdId?.price}</p>
                 <p>Stock: {dataProdId?.stock}</p>
                 <p>Ref: {dataProdId?.ref}</p>
+                <button type="button" onClick={handleBuy} 
+                    className="btn-primary"
+                >
+                    Buy it
+                </button>
             </div>
 
         </div>

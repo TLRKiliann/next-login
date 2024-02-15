@@ -15,9 +15,7 @@ export default function LogoutBtn() {
         <div>
             <button onClick={handleSignOut}
                 className="absolute top-2 right-2 bg-slate-50 border border-slate-300 transition ease-in-out 
-                transform duration-100 hover:scale-105 hover:bg-slate-100 hover:shadow-btn
-                
-                px-3 py-2 rounded"
+                transform duration-100 hover:scale-105 hover:bg-slate-100 px-4 py-2 rounded"
             >
                 Signout
             </button>

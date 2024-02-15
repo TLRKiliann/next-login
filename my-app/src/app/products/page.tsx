@@ -35,13 +35,17 @@ export default function Products() {
   return (
     <div>
         
-        <h1 className='text-2xl p-4'>
+        <h1 className='text-2xl p-4 mb-40'>
             Products Page
         </h1>
 
         {products.map((prod: ProductsProps) => (
-          <div key={prod.id} className="w-1/5 m-auto mt-10">
-            <Link href={`/products/${prod.id}`} className="text-blue-600 hover:text-blue-500">Product: {prod.productName}</Link>
+          <div key={prod.id} className="w-1/5 m-auto">
+            <Link href={`/products/${prod.id}`}
+              className="text-blue-600 hover:text-blue-700 active:text-blue-500"
+            >
+              Product: {prod.productName}
+            </Link>
             <p>Price: {prod.price}</p>
             <p>Stock: {prod.stock}</p>
             <p>Ref: {prod.ref}</p>
