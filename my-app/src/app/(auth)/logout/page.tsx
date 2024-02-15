@@ -33,11 +33,18 @@ export default function Logout() {
                     onClick={() => signOut()}>
                     Sign out
                 </button>
-                <li className="text-xl font-bold text-blue-500 hover:text-blue-600 active:text-blue-400 m-4">
+                <li className="text-lg font-bold text-blue-500 hover:text-blue-600 active:text-blue-400 mt-4">
                     <Link href="/products">
                         Go to products
                     </Link>
                 </li>
+
+                <li className="text-lg font-bold text-blue-500 hover:text-blue-600 active:text-blue-400">
+                    <Link href="/about">
+                        Go to about
+                    </Link>
+                </li>
+
             </div>
         )
     } else {
