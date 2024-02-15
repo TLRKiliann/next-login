@@ -41,6 +41,6 @@ export default function Logout() {
             </div>
         )
     } else {
-        redirect("/")
+        redirect("/");
     }
 }

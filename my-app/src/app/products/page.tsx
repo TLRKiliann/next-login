@@ -1,11 +1,21 @@
 "use client";
 
 import type { ProductsProps } from '../lib/definitions';
+import { useSession } from "next-auth/react";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default function Products() {
   
+  const {data: session} = useSession();
+  
+  //console.log(session,"data")
+
+  if (!session) {
+    redirect("/login")
+  };
+
   const [products, setProducts] = useState<ProductsProps[]>([]);
 
   useEffect(() => {
@@ -19,7 +29,7 @@ export default function Products() {
   }, [])
 
   if (products.length > 3) {
-    throw new Error("Some trouble with products")
+    throw new Error("Products greater than list of products !")
   };
 
   return (

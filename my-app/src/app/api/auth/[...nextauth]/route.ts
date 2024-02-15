@@ -17,11 +17,9 @@ const authOptions = NextAuth({
     ],
     callbacks: {
         async jwt({ token, account }) {
-            // Persist the OAuth access_token to the token right after signin
             if (account) {
                 token.accessToken = account.access_token
             }
-            //console.log(token, "token")
             return token
         },
         async session({ session }) {
@@ -35,10 +33,10 @@ const authOptions = NextAuth({
         async signIn() {
             const isAllowedToSignIn = true
             if (isAllowedToSignIn) {
-                //console.log("login ok !")
+                console.log("login ok !")
                 return true
             } else {
-                //console.log("Not logged in !")
+                console.log("Not logged in !")
                 redirect('/login');
             }
         }

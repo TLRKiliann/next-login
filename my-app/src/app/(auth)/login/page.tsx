@@ -4,7 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { redirect } from 'next/navigation';
 
 export default function Login() {
-    
+
     const { data: session } = useSession();
 
     if (!session) {
@@ -28,6 +28,6 @@ export default function Login() {
             </div>
         )
     } else {
-        redirect("/logout")
+        redirect("/products")
     }
 }
