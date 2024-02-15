@@ -36,8 +36,12 @@ export default function Products() {
     <div>
         
         <h1 className='text-2xl p-4 mb-40'>
-            Products Page
+          Products Page
         </h1>
+
+        <Link href="/about">
+          Go to about
+        </Link>
 
         {products.map((prod: ProductsProps) => (
           <div key={prod.id} className="w-1/5 m-auto">
