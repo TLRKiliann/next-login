@@ -14,14 +14,14 @@ export default function Login() {
                     Not Signed In
                 </p>
                 <button className="text-slate-50 bg-blue-500 transition trasform duration-200 
-                hover:scale-105 py-2 px-6 rounded-md hover:shadow-lg mb-2" 
-                onClick={() => signIn('google')}
+                    hover:scale-105 py-2 px-6 rounded-md hover:shadow-lg mb-2" 
+                    onClick={() => signIn('google')}
                 >
                     Sign in with google
                 </button>
                 <button className="text-slate-900 border transition trasform duration-200 
-                hover:scale-105 py-2 px-6 rounded-md hover:shadow-lg mb-2"
-                onClick={() => signIn('github')}
+                    hover:scale-105 py-2 px-6 rounded-md hover:shadow-lg mb-2"
+                    onClick={() => signIn('github')}
                 >
                     Sign in with github
                 </button>
