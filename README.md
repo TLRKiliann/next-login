@@ -6,6 +6,12 @@
 
 ---
 
+## Motivation
+
+I just would play with NextAuth to login for one route (products).
+
+---
+
 Generate a NEXTAUTH_SECRET key :
 `$ openssl rand -base64 32`
 
@@ -22,3 +28,16 @@ NEXTAUTH_SECRET=genereate_by_cmd_above
 NEXTAUTH_URL=http://localhost:3000
 ```
 
+- Only allows one callback URL per Client ID / Client Secret !
+- Refreshing token : token is refresh every 8 hours on GitHub.
+
+You can use token in /api/[...nextauth]/route.ts
+
+```
+    async jwt({ token, account }) {
+        if (account) {
+            token.accessToken = account.access_token
+        }
+        return token
+    },
+```
