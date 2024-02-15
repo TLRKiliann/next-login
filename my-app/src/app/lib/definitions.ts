@@ -5,4 +5,5 @@ export type ProductsProps = {
     stock: number;
     ref: number;
     display: boolean;
+    text?: string;
 }

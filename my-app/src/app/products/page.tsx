@@ -1,11 +1,24 @@
 "use client";
 
+import { useSession, signIn, signOut } from "next-auth/react";
 import type { ProductsProps } from '../lib/definitions';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default function page() {
 
   const [products, setProducts] = useState<ProductsProps[]>([]);
+
+  const {data: session} = useSession();
+  
+  console.log(session,"data")
+  
+  if (!session) {
+    redirect("/")
+  } else {
+    console.log("login ok, but it's not best practice")
+  };
 
   useEffect(() => {
     const callerProd = async () => {
@@ -29,10 +42,11 @@ export default function page() {
 
         {products.map((prod: ProductsProps) => (
           <div key={prod.id}>
-            <p>Product: {prod.productName}</p>
+            <Link href={`/products/${prod.id}`}>Product: {prod.productName}</Link>
             <p>Price: {prod.price}</p>
             <p>Stock: {prod.stock}</p>
             <p>Ref: {prod.ref}</p>
+            <hr />
           </div>
         ))}
 
