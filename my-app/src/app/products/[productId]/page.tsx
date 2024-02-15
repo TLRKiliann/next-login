@@ -1,9 +1,18 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import type { ProductsProps } from '@/app/lib/definitions';
 import React, { useState, useEffect } from 'react'
+import { redirect } from "next/navigation";
 
 export default function ProductById({params}: {params: {productId: string}}) {
+
+    const {data: session} = useSession();
+    //console.log(session, "session");
+  
+    if (!session) {
+      redirect("/login")
+    };
 
     if (parseInt(params.productId) > 3) {
         throw new Error("Some trouble with products")

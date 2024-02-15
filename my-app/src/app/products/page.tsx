@@ -1,24 +1,22 @@
 "use client";
 
-import { useSession, signIn, signOut } from "next-auth/react";
 import type { ProductsProps } from '../lib/definitions';
+import { useSession } from "next-auth/react";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
-export default function page() {
-
-  const [products, setProducts] = useState<ProductsProps[]>([]);
-
+export default function Products() {
+  
   const {data: session} = useSession();
   
-  console.log(session,"data")
-  
+  //console.log(session,"data")
+
   if (!session) {
-    redirect("/")
-  } else {
-    console.log("login ok, but it's not best practice")
+    redirect("/login")
   };
+
+  const [products, setProducts] = useState<ProductsProps[]>([]);
 
   useEffect(() => {
     const callerProd = async () => {
@@ -31,25 +29,25 @@ export default function page() {
   }, [])
 
   if (products.length > 3) {
-    throw new Error("Some trouble with products")
-  }
+    throw new Error("Products greater than list of products !")
+  };
 
   return (
-    <div>    
+    <div>
+        
         <h1 className='text-2xl p-4'>
             Products Page
         </h1>
 
         {products.map((prod: ProductsProps) => (
-          <div key={prod.id}>
-            <Link href={`/products/${prod.id}`}>Product: {prod.productName}</Link>
+          <div key={prod.id} className="w-1/5 m-auto mt-10">
+            <Link href={`/products/${prod.id}`} className="text-blue-600 hover:text-blue-500">Product: {prod.productName}</Link>
             <p>Price: {prod.price}</p>
             <p>Stock: {prod.stock}</p>
             <p>Ref: {prod.ref}</p>
-            <hr />
+            <hr className="my-4" />
           </div>
         ))}
-
     </div>
   )
 }
