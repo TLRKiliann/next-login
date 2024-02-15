@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-primary {
+    @apply text-slate-50 bg-blue-500 cursor-pointer transition ease-in-out transform duration-200 
+    hover:scale-105 hover:bg-blue-600 hover:shadow-btn active:bg-blue-400 active:scale-95 active:shadow-none 
+    px-4 py-2 rounded;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
