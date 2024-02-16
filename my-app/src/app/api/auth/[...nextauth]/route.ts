@@ -35,7 +35,7 @@ const handlers = NextAuth({
 export { handlers as GET, handlers as POST }
 
 /*
-only one url !
+only one url & already manage by middleware
 async redirect({ url, baseUrl }) {
     if (url.startsWith("/products")) return `${baseUrl}${url}`
     else if (new URL(url).origin === baseUrl) return url
