@@ -12,7 +12,7 @@ export default async function Home() {
         Go to about
       </Link>
 
-      <legend className="italic">(you will be redirect to login)</legend>
+      <legend className="italic">(Anyway, you will be redirect to login)</legend>
 
     </div>
   )
