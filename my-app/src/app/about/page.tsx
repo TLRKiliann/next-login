@@ -23,9 +23,28 @@ export default function About() {
         About Page
       </h1>
 
-      <Link href="/products">
-        Go to Products
-      </Link>
+      <div className='flex flex-col w-[200px] m-auto'>
+
+        <div className='p-4'>
+            <Link href="/products" className='btn-primary'>
+              Go to Products
+            </Link>
+          </div>
+
+          <div className='p-4'>
+            <Link href="/products" className='btn-primary'>
+              Go to Products
+            </Link>
+          </div>
+
+          <div className='p-4'>
+            <Link href="/products" className='btn-primary'>
+              Go to Products
+            </Link>
+          </div>
+
+      </div>
+
     </div>
   )
 }
