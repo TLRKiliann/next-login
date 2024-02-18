@@ -14,8 +14,7 @@ export default function About() {
   if (!session) {
     redirect("/login")
   };
-
-
+  
   return (
     <div>
       <LogoutBtn />
