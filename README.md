@@ -9,7 +9,7 @@
 ## Motivation
 
 - Login with GitHub provider.
-- Test NextAuth to login from two routes (products + about).
+- To be redirected from two routes (products + about).
 - How to setup a middleware with `redirect`.
 - How to setup a session provider without to ask login in each route.
 
