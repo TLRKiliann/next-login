@@ -2,7 +2,7 @@
 
 ## NextJS14 with NextAuth 
 
-- login (github & google providers)
+- login with github & google providers;
 
 ---
 
@@ -10,6 +10,7 @@
 
 - Login with GitHub provider.
 - To be redirected from two routes (products + about).
+- Catch contact & main page in login mode.
 - How to setup a middleware with `redirect`.
 - How to setup a session provider without to ask login in each route.
 
@@ -34,7 +35,7 @@ NEXTAUTH_URL=http://localhost:3000
 - Only allows one callback URL per Client ID / Client Secret !
 - Refreshing token : token is refresh every 8 hours on GitHub.
 
-You can use token in /api/[...nextauth]/route.ts
+You can use token in /api/[...nextauth]/route.ts (not required with github).
 
 ```
     async jwt({ token, account }) {
